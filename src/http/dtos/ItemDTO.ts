@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from "class-validator";
 import { IsUnique } from "../validators/IsUniqueValidator";
-import { Item } from "@/database/entities/Item";
+import { Item } from "src/database/entities/Item";
 import { isFloat32Array } from "util/types";
 
 export class createItemDTO {

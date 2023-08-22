@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { ErrorHandler } from "../http/middlewares/ErrorHandler";
-import AuthController from "@/http/controllers/auth/AuthController";
-import AuthMiddleware from "@/http/middlewares/AuthMiddleware";
+import AuthController from "../http/controllers/auth/AuthController";
+import AuthMiddleware from "../http/middlewares/AuthMiddleware";
 
 class AuthRouter {
     private router: Router;

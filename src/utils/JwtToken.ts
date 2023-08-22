@@ -1,5 +1,5 @@
-import { AppDataSource } from "@database/data-source";
-import { OauthToken } from "@/database/entities/OauthToken";
+import { AppDataSource } from "src/database/data-source";
+import { OauthToken } from "src/database/entities/OauthToken";
 import { sign } from "jsonwebtoken";
 
 export class JwtToken {

@@ -1,6 +1,6 @@
-import { Paginator } from "@/database/Paginator";
-import { AppDataSource } from "@database/data-source";
-import { User } from "@/database/entities/User";
+import { Paginator } from "src/database/Paginator";
+import { AppDataSource } from "src/database/data-source";
+import { User } from "src/database/entities/User";
 import { createUserDTO, updateUserDTO } from "@/http/dtos/UserDTO";
 import { ResponseUtil } from "@/utils/Response";
 import { validateOrReject } from "class-validator";

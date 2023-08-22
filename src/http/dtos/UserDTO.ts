@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from "class-validator";
 import { IsUnique } from "../validators/IsUniqueValidator";
-import { User } from "@/database/entities/User";
+import { User } from "src/database/entities/User";
 
 export class createUserDTO {
   id?: string;
