@@ -1,12 +1,12 @@
-import { User } from "src/database/entities/User";
 import JwtService from "@/utils/JwtService";
 import { ResponseUtil } from "@/utils/Response";
 import { LoginDTO, RegisterDTO } from "@http/dtos/AuthDTO";
 import { compare } from "bcryptjs";
 import { validateOrReject } from "class-validator";
 import { NextFunction, Request, Response } from "express";
-import { OauthToken } from "src/database/entities/OauthToken";
-import { AppDataSource } from "src/database/data-source";
+import { User } from "@/database/entities/User";
+import { OauthToken } from "@/database/entities/OauthToken";
+import { AppDataSource } from "@/database/data-source";
 
 class AuthController {
   async register(req: Request, res: Response, next: NextFunction): Promise<Response> {

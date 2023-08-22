@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { ResponseUtil } from "../../utils/Response";
 import { AppDataSource } from "./../../database/data-source";
 import { User } from "./../../database/entities/User";
-import { OauthToken } from "src/database/entities/OauthToken";
+import { OauthToken } from "@/database/entities/OauthToken";
 import JwtService from "@/utils/JwtService";
 
 class AuthMiddleware {
