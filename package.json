@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "author": "Matt Spear",
+  "engines": {
+    "node": "16.*"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
