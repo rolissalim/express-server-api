@@ -17,14 +17,15 @@
     "sourceMap": true,
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
-    "baseUrl": "./",
+    "baseUrl": "",
     "emitDecoratorMetadata": true,
     "paths": {
-      "@/*": ["src/*"],
-      "@http/*": ["src/http/*"],
-      "@database/*": ["src/database/*"]
+      "@/*": ["./src/*"],
+      "@http/*": ["./src/http/*"],
+      "@database/*": ["./src/database/*"],
+      "@utils/*": ["./src/utis/*"]
     }
   },
   "compileOnSave": true,
-  "include": ["src"]
+  "include": ["./src"]
 }

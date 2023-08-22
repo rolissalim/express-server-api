@@ -1,5 +1,5 @@
 import { DBTable } from "../../constants/DBTable";
-import { MigrationInterface, QueryRunner, Table, TableIndex } from "typeorm"
+import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
 export class CreateUsersTable1690452042864 implements MigrationInterface {
 
