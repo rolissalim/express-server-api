@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import { Roles } from "../../constants/Role";
 import { User } from "../../database/entities/User";
 import { ResponseUtil } from "../../utils/Response";
 

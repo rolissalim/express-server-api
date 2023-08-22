@@ -6,7 +6,7 @@ import { OauthToken } from "@/database/entities/OauthToken";
 import JwtService from "@/utils/JwtService";
 
 class AuthMiddleware {
-  
+
   async authenticate(req: Request, res: Response, next: NextFunction) {
     const { authorization: tokenHeader } = req.headers;
     if (!tokenHeader) {
@@ -17,7 +17,7 @@ class AuthMiddleware {
 
     try {
       const decoded = JwtService.verify(token, process.env.ACCESS_TOKEN_KEY || "secret123");
-      
+
       // @ts-ignore
       const { identifier: id } = decoded;
       const repo = AppDataSource.getRepository(User);
@@ -30,19 +30,20 @@ class AuthMiddleware {
         is_active: "1",
       });
 
-      if(!ouathToken) {
+      if (!ouathToken) {
         return ResponseUtil.sendErrror(res, "Invalid token", 401, null);
       }
 
       // @ts-ignore
       req.params.user = user;
       req.params.token = token;
-
+      next();
+      return ResponseUtil.sendResponse(res, "Success Auth", 200, null);
     } catch (error) {
       console.error(error);
       return ResponseUtil.sendErrror(res, "Invalid token", 401, null);
     }
-    next();
+
   }
 }
 

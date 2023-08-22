@@ -1,8 +1,6 @@
-import { hash } from "bcryptjs";
-import { BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { DBTable } from "../../constants/DBTable";
-import { OauthToken } from "./OauthToken";
-import { IsNumber, IsOptional } from "class-validator";
+import { IsNumber } from "class-validator";
 @Entity(DBTable.ITEMS)
 export class Item {
   @PrimaryGeneratedColumn("uuid")

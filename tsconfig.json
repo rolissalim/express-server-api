@@ -8,12 +8,20 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators":true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noImplicitAny": false,
     "sourceMap": true,
     "lib": ["ESNext"],
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@http/*": ["src/http/*"],
+      "@database/*": ["src/database/*"]
+    }
   },
   "compileOnSave": true,
   "include": ["src"]

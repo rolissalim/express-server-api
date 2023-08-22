@@ -1,4 +1,3 @@
-import { hash } from "bcryptjs";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { DBTable } from "../../constants/DBTable";
 import { User } from "./User";
