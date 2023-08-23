@@ -3,8 +3,8 @@ import { DBTable } from "../../constants/DBTable";
 import { IsNumber } from "class-validator";
 @Entity(DBTable.ITEMS)
 export class Item {
-  @PrimaryGeneratedColumn("increment")
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Column()
   name: string;

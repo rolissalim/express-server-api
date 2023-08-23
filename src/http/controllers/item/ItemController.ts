@@ -20,7 +20,7 @@ class ItemController {
 
     async getDataByID(req: Request, res: Response) {
         const { id } = req.params;
-        const item = await AppDataSource.getRepository(Item).findOneByOrFail({ id: Number(id) });
+        const item = await AppDataSource.getRepository(Item).findOneByOrFail({ id: String(id) });
         return ResponseUtil.sendResponseDatatable(res, "Fetch item successfully", item.toResponse());
     }
 
@@ -64,7 +64,7 @@ class ItemController {
 
         const repo = AppDataSource.getRepository(Item);
         const item = await repo.findOneByOrFail({
-            id: Number(id),
+            id: String(id),
         });
 
         repo.merge(item, itemData);
@@ -77,7 +77,7 @@ class ItemController {
         const { id } = req.params;
         const repo = AppDataSource.getRepository(Item);
         const item = await repo.findOneByOrFail({
-            id: Number(id)
+            id: String(id)
         });
 
         await repo.remove(item);

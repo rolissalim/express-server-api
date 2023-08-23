@@ -9,10 +9,10 @@ export class CreateItemsTable1692631186413 implements MigrationInterface {
                 columns: [
                     {
                         name: "id",
-                        type: "integer",
+                        type: "char",
                         isPrimary: true,
-                        isGenerated: true,
-                        generationStrategy: "increment"
+                        generationStrategy: "uuid",
+                        length: "50"
                     },
                     {
                         name: "name",
@@ -40,21 +40,20 @@ export class CreateItemsTable1692631186413 implements MigrationInterface {
                     },
                     {
                         name: "image",
-                        type: "varchar",
-                        length: "150"
+                        type: "text",
                     },
-                    // {
-                    //     name: "created_at",
-                    //     type: "datetime",
-                    //     default: "now()",
-                    //     isNullable: true,
-                    // },
-                    // {
-                    //     name: "updated_at",
-                    //     type: "datetime",
-                    //     default: "now()",
-                    //     isNullable: true,
-                    // },
+                    {
+                        name: "created_at",
+                        type: "datetime",
+                        default: "now()",
+                        isNullable: true,
+                    },
+                    {
+                        name: "updated_at",
+                        type: "datetime",
+                        default: "now()",
+                        isNullable: true,
+                    },
                 ],
             }),
             true
