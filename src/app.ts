@@ -12,12 +12,13 @@ class App {
 
   constructor() {
     this.app = express();
+    this.app.use(cors());
+    this.app.options('*', cors())
     this.setupGlobalMiddleware();
     this.setupRouters();
   }
 
   start(port: string | number = 3000) {
-    this.app.use(cors());
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
 

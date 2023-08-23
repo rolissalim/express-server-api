@@ -6,7 +6,7 @@
  *       type: object
  *       required:
  *         - name
- *         - purchasing_price
+ *         - purchase_price
  *         - selling_price
  *         - image
  *         - stock
@@ -14,7 +14,7 @@
  *         name:
  *           type: string
  *           description: name
- *         purchasing_price:
+ *         purchase_price:
  *           type: number
  *           description: purchasing price of item
  *         selling_price:
