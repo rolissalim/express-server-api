@@ -27,9 +27,9 @@ class ItemController {
     async store(req: Request, res: Response) {
         let itemData: any = {
             ...req.body,
-            purchase_price: +req?.body?.purchase_price,
-            selling_price: +req?.body?.selling_price,
-            stock: +req?.body?.stock,
+            purchase_price:Number(req?.body?.purchase_price),
+            selling_price: Number(req?.body?.selling_price),
+            stock: Number(req?.body?.stock),
         };
         if (req?.file?.path)
             itemData.image = req?.file?.path
