@@ -11,7 +11,13 @@
     "build": "tsc",
     "start": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/index.ts",
     "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/index.ts",
-    "prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/index.js"
+    "prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/index.js",
+    "typeorm": "typeorm-ts-node-commonjs -d src/database/data-source.ts",
+    "migration:show": "yarn typeorm migration:show",
+    "migration:create": "node scripts/migration-create.js",
+    "migration:run": "yarn typeorm migration:run",
+    "migration:revert": "yarn typeorm migration:revert",
+    "seeder:create": "node scripts/seeder-create.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
