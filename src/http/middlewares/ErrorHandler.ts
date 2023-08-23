@@ -24,6 +24,9 @@ export class ErrorHandler {
       return ResponseUtil.sendErrror(res, "Invalid file type", 422, null);
     }
 
+    console.log("err", err);
+
+
     return res.status(500).send({
       success: false,
       message: "Something went wrong",

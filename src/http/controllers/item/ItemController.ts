@@ -10,7 +10,7 @@ class ItemController {
 
     async getData(req: Request, res: Response) {
         const builder = await AppDataSource.getRepository(Item).createQueryBuilder("item");
-        const { records: item, meta } = await Paginator.paginate(builder, req, Item.getSearchableColumns(), 'item',Item.getSearchableParams())
+        const { records: item, meta } = await Paginator.paginate(builder, req, Item.getSearchableColumns(), 'item', Item.getSearchableParams())
         const itemData = item.map((item: Item) => {
             return item.toResponse();
         });
@@ -25,7 +25,15 @@ class ItemController {
     }
 
     async store(req: Request, res: Response) {
-        const itemData = req.body;
+        let itemData: any = {
+            ...req.body,
+            purchase_price: +req?.body?.purchase_price,
+            selling_price: +req?.body?.selling_price,
+            stock: +req?.body?.stock,
+        };
+        if (req?.file?.path)
+            itemData.image = req?.file?.path
+
         const dto = new createItemDTO();
         Object.assign(dto, itemData);
 
@@ -40,7 +48,15 @@ class ItemController {
 
     async update(req: Request, res: Response) {
         const { id } = req.params;
-        const itemData = req.body;
+        let itemData: any = {
+            ...req.body,
+            purchase_price: +req?.body?.purchase_price,
+            selling_price: +req?.body?.selling_price,
+            stock: +req?.body?.stock,
+            image: req?.file?.path,
+        };
+        if (req?.file?.path)
+            itemData.image = req?.file?.path
         const dto = new updateItemDTO();
         Object.assign(dto, itemData);
 
@@ -64,8 +80,7 @@ class ItemController {
             id: String(id),
         });
 
-        repo.merge(item);
-        await repo.save(item);
+        await repo.remove(item);
 
         return ResponseUtil.sendResponse(res, "Successfully updated status item", {});
     }

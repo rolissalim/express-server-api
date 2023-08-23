@@ -8,7 +8,6 @@
  *         - email
  *         - name
  *         - password
- *         - password_confirmation
  *       properties:
  *         name:
  *           type: string
@@ -18,16 +17,11 @@
  *           description: email
  *         password:
  *           type: string
- *           description: The title of your book
- *         images:
- *           type: string
- *           format: binary
+ *           description: The title of your user
  *       example:
  *         name: test
  *         email: test@gmail.com
  *         password: password
- *         password_confirmation: password
- *         images: [string]
  * 
  */
 

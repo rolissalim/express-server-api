@@ -28,20 +28,10 @@ class UserRouter {
     }
 
     private setup() {
-        const multer = require("multer");
-        var storage = multer.diskStorage({
-            destination: (req, file, callBack) => {
-                callBack(null, 'uploads/users')     // './public/images/' directory name where save the file
-            },
-            filename: (req, file, callBack) => {
-                callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-            }
-        })
-        const upload = multer({ storage: storage });
         this.router.get('/', ErrorHandler.catchErrors(AuthMiddleware.authenticate), ErrorHandler.catchErrors(UserController.getData));
         this.router.get('/:id', ErrorHandler.catchErrors(AuthMiddleware.authenticate), ErrorHandler.catchErrors(UserController.getDataByID));
-        this.router.post('', upload.single('image'), ErrorHandler.catchErrors(AuthMiddleware.authenticate), ErrorHandler.catchErrors(UserController.store));
-        this.router.post('/:id', upload.single('image'), ErrorHandler.catchErrors(AuthMiddleware.authenticate), ErrorHandler.catchErrors(UserController.update));
+        this.router.post('', ErrorHandler.catchErrors(AuthMiddleware.authenticate), ErrorHandler.catchErrors(UserController.store));
+        this.router.post('/:id', ErrorHandler.catchErrors(AuthMiddleware.authenticate), ErrorHandler.catchErrors(UserController.update));
         this.router.delete('/:id', ErrorHandler.catchErrors(AuthMiddleware.authenticate), ErrorHandler.catchErrors(UserController.delete));
     }
 }
