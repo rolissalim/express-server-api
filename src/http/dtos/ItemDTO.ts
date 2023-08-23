@@ -10,11 +10,9 @@ export class createItemDTO {
     name: string;
 
     @IsNotEmpty()
-    @IsNumber()
     purchase_price: number;
 
     @IsNotEmpty()
-    @IsNumber()
     selling_price: number;
 
     @IsNotEmpty()
@@ -30,11 +28,9 @@ export class updateItemDTO {
     name: string;
 
     @IsNotEmpty()
-    @IsNumber()
     purchase_price: number;
 
     @IsNotEmpty()
-    @IsNumber()
     selling_price: number;
 
     @IsNotEmpty()

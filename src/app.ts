@@ -32,6 +32,7 @@ class App {
   }
 
   private setupRouters() {
+    this.app.use(cors());
     this.app.get('/', (_, res) => {
       res.json({ message: 'Welcome to our service!' });
     });
