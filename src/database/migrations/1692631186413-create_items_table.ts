@@ -9,10 +9,10 @@ export class CreateItemsTable1692631186413 implements MigrationInterface {
                 columns: [
                     {
                         name: "id",
-                        type: "char",
+                        type: "integer",
                         isPrimary: true,
-                        generationStrategy: "uuid",
-                        length: "50"
+                        isGenerated: true,
+                        generationStrategy: "increment"
                     },
                     {
                         name: "name",
