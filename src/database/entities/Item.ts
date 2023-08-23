@@ -22,11 +22,11 @@ export class Item {
   @Column()
   image: string;
 
-  @CreateDateColumn()
-  created_at: Date;
+  // @CreateDateColumn()
+  // created_at: Date;
 
-  @UpdateDateColumn()
-  updated_at: Date;
+  // @UpdateDateColumn()
+  // updated_at: Date;
 
   toResponse(): Item {
 

@@ -43,18 +43,18 @@ export class CreateItemsTable1692631186413 implements MigrationInterface {
                         type: "varchar",
                         length: "150"
                     },
-                    {
-                        name: "created_at",
-                        type: "datetime",
-                        default: "now()",
-                        isNullable: true,
-                    },
-                    {
-                        name: "updated_at",
-                        type: "datetime",
-                        default: "now()",
-                        isNullable: true,
-                    },
+                    // {
+                    //     name: "created_at",
+                    //     type: "datetime",
+                    //     default: "now()",
+                    //     isNullable: true,
+                    // },
+                    // {
+                    //     name: "updated_at",
+                    //     type: "datetime",
+                    //     default: "now()",
+                    //     isNullable: true,
+                    // },
                 ],
             }),
             true
