@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/index.ts",
     "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/index.ts",
     "prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/index.js"
   },

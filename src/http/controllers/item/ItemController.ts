@@ -10,7 +10,7 @@ class ItemController {
 
     async getData(req: Request, res: Response) {
         const builder = await AppDataSource.getRepository(Item).createQueryBuilder("item");
-        const { records: item, meta } = await Paginator.paginate(builder, req, Item.getSearchableColumns(), 'item')
+        const { records: item, meta } = await Paginator.paginate(builder, req, Item.getSearchableColumns(), 'item',Item.getSearchableParams())
         const itemData = item.map((item: Item) => {
             return item.toResponse();
         });

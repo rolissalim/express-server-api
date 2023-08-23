@@ -38,12 +38,11 @@ class AuthMiddleware {
       // @ts-ignore
       req.params.user = user;
       req.params.token = token;
-      next();
-      return ResponseUtil.sendResponse(res, "Success Auth", 200, null);
     } catch (error) {
       console.error(error);
       return ResponseUtil.sendErrror(res, "Invalid token", 401, null);
     }
+    next();
 
   }
 }

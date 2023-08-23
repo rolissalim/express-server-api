@@ -40,6 +40,10 @@ export class Item {
     return ["name"]
   }
 
+  static getSearchableParams() {
+    return {}
+  }
+
 
 
 }
