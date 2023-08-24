@@ -26,7 +26,7 @@ export class updateItemDTO {
     id?: string;
 
     @IsString()
-    @IsUnique(Item, "name")
+    // @IsUnique(Item, "name")
     name: string;
 
     @IsNotEmpty()
