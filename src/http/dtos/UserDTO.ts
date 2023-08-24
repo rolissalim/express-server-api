@@ -11,7 +11,7 @@ export class createUserDTO {
   @IsNotEmpty()
   // @IsEmail()
   @IsString()
-  @IsUnique(User, "email")
+  @IsUnique(User, "name")
   email: string;
 
   @IsNotEmpty()

@@ -7,6 +7,7 @@ export class createItemDTO {
     id?: string;
 
     @IsString()
+    @IsUnique(Item, "name")
     name: string;
 
     @IsNotEmpty()
@@ -25,6 +26,7 @@ export class updateItemDTO {
     id?: string;
 
     @IsString()
+    @IsUnique(Item, "name")
     name: string;
 
     @IsNotEmpty()
