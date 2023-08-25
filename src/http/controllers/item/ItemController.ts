@@ -5,6 +5,7 @@ import { createItemDTO, updateItemDTO } from "@/http/dtos/ItemDTO";
 import { ResponseUtil } from "@/utils/Response";
 import { validateOrReject } from "class-validator";
 import { Request, Response } from "express";
+import { Not } from "typeorm";
 
 class ItemController {
 
@@ -63,14 +64,24 @@ class ItemController {
         await validateOrReject(dto);
 
         const repo = AppDataSource.getRepository(Item);
-        const item = await repo.findOneByOrFail({
-            id: String(id),
+
+        const itemExistCheckt = await repo.findBy({
+            id: Not(String(id)),
+            name: itemData?.name
         });
 
-        repo.merge(item, itemData);
-        await repo.save(item);
+        if (itemExistCheckt?.length > 0)
+            return ResponseUtil.sendErrror(res, "Name already exist", 422, null);
+        else {
+            const item = await repo.findOneByOrFail({
+                id: String(id),
+            });
+            repo.merge(item, itemData);
+            await repo.save(item);
 
-        return ResponseUtil.sendResponse(res, "Successfully updated item", {});
+            return ResponseUtil.sendResponse(res, "Successfully updated item", {});
+        }
+
     }
 
     async delete(req: Request, res: Response) {
