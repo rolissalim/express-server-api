@@ -58,6 +58,8 @@ class ItemController {
         };
         if (req?.file?.path)
             itemData.image = req?.file?.path
+        else
+            delete itemData.image
         const dto = new updateItemDTO();
         Object.assign(dto, itemData);
 
